@@ -46,6 +46,13 @@ class App extends Component {
     this.updateBalance(wallet);
   }
 
+  /**
+   * Pay a bill (by name)
+   * It will transfer the amount of money that the user has specified to the address
+   * that is keyed by the name supplied
+   * 
+   * In our example we only have two services we can pay to
+   */
   payBill = (name) => () => {
     let res = +prompt("Pay the " + name + " bill; how much would you like to pay?")
 
@@ -88,6 +95,10 @@ class App extends Component {
     }
   }
 
+  /**
+   * Refresh the current account balance for the currently logged in user
+   * 
+   */
   updateBalance = (wallet) => {
     // get balance, set value
     if (wallet === "") {
@@ -100,6 +111,9 @@ class App extends Component {
     })    
   }
 
+  /**
+   * helper method that will interact with the blockchain and actually top-up the wallet
+   */
   requestTopup = (total) => {
     // request topup
 
@@ -132,25 +146,10 @@ class App extends Component {
 
   }
 
-  /**
-   * Get the billing addresses for our bills; async; the system returns a json of
-   * name list
-   * 
-   * This list is then shown to the user; and is valid in the system as a corresponding 
-   * payment service
-   * 
-   * We are actually querying the smart contract for results; actually we are simply
-   * querying the web service that provides us with a potentially cached version of the
-   * results
-   * 
-   * Ultimately we will be sending our results to the smart contract; which will reject if 
-   * service name is not registered in the system
-   */
-  getBillAddresses = () => {
-  }
-
-
+  ///////////////////////////////////////////////////////////////////
+  // NOTE:
   // below is not something that is important to the API services
+  ///////////////////////////////////////////////////////////////////
 
   /**
    * Change the auth type, either user, auth, or admin
