@@ -4,7 +4,7 @@ import './App.css';
 import { ethers } from "ethers";
 import ABI from './Contract.abi.json';
 
-const contractAddress = "0x81f20a168009c0592094e1c78773e58a5a552b67";
+const contractAddress = "REPLACE_WITH_YOUR_VALID_ADDRESS";
 
 class App extends Component {
   state = {
@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     // To connect to a custom URL:
-    let url = "http://localhost:7545";
+    let url = "REPLACE_ME_WITH_YOUR_VALID_ENDPOINT";
     let customHttpProvider = new ethers.providers.JsonRpcProvider(url);
 
     this.provider = customHttpProvider;
@@ -275,7 +275,7 @@ class App extends Component {
           </p>
           <div style={{ display: this.state.type !== "" ? "block" : "none" }}>
             <span>Your wallet is {this.state.wallet} - {this.state.type}, Balance is {this.state.balance}</span>
-            <button onClick={this.updateBalance}>Refresh</button>
+            <button onClick={()=>{this.updateBalance(this.state.wallet)}}>Refresh</button>
           </div>
           {this.getUserSection()}
           {this.getAdminSection()}
