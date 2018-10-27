@@ -4,7 +4,7 @@ import './App.css';
 import { ethers } from "ethers";
 import ABI from './Contract.abi.json';
 
-const contractAddress = "REPLACE_WITH_YOUR_VALID_ADDRESS";
+const contractAddress = "0x1f8e57d6262d62a5e1fc14f16a44b13e5c3e6e07";
 
 class App extends Component {
   state = {
@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     // To connect to a custom URL:
-    let url = "REPLACE_ME_WITH_YOUR_VALID_ENDPOINT";
+    let url = "http://ethwl2ous-dns-reg1.southeastasia.cloudapp.azure.com:8540";
     let customHttpProvider = new ethers.providers.JsonRpcProvider(url);
 
     this.provider = customHttpProvider;
